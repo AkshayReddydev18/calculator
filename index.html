@@ -1,85 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .container{
-            display: grid;
-            background-color: rgb(245, 205, 152);
-            grid-template-columns: 50px 50px 50px 50px;
-            grid-template-rows: 50px 50px 50px 50px 50px;
-            gap: 5px;
-            width: 215PX;
-            border-radius: 10PX;
-            
+      .container {
+        display: grid;
+        /* background-color: rgb(245, 205, 152); */
+        grid-template-columns: 50px 50px 50px 50px;
+        grid-template-rows: 50px 50px 50px 50px 50px;
+        gap: 5px;
+        width: 220px;
+        height: 390px;
+        border-radius: 10px;
+        border: 2px solid black;
+        background-image: url(./plane2.jpg);
+        background-size: cover;
+        /* background-color: rgb(97, 94, 94); */
+        padding: 5px;
+      }
+      .child {
+        /* background-color: grey; */
+        /* border-radius: 50px; */
+        text-align: center;
+        /* padding: 15px; */
+        font-size: 20px;
+      }
+      div.dis {
+        grid-column: 1/5;
+        grid-row: 1/3;
+        /* background-color: rgb(188, 193, 193); */
+        /* border-radius: 10px; */
+        /* padding: 10px; */
+        font-size: 40px;
+        text-align: right;
+      }
+      div.sign {
+        grid-column: 1/5;
+        /* background-color: rgb(34, 209, 151); */
+        /* border-radius: 20px; */
+        /* padding: 10px; */
+      }
+      .childAC {
+        /* background-color: rgb(146, 178, 192); */
+        /* padding: 11px; */
+      }
 
-        }
-        .child{
-            background-color:grey;
-            border-radius: 50px;
-            text-align: center;
-            padding: 15px;
-            font-size: 20px;
-            /* height: 5px; */
-        }
-        div.dis{
-            grid-column: 1/5;
-            grid-row: 1/3;
-            background-color: rgb(188, 193, 193);
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 40px;
-            text-align: right;
-        }
-        div.sign{
-            grid-column: 1/5;
-            /* background-color: rgb(34, 209, 151); */
-            border-radius: 20px;
-            padding: 10px;
-        }
-        .childAC{
-            background-color: rgb(146, 178, 192);
-            padding: 11px;
-        }
-        .child20{
-            background-color: rgb(146, 186, 224);
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .child2,.child3,.child4,.child8,.child12,.child16{
-            background-color: rgb(253, 245, 245);
-            padding: 10px;
-            font-size: 25px;
-            font-weight: bold;
-        }
+      .operator {
+        /* background-color: rgb(253, 245, 245); */
+        /* border-radius: 50px; */
+        /* padding: 10px; */
+        font-size: 20px;
+        /* font-weight: bold; */
+        /* text-align: center; */
+      }
+      button {
+        text-decoration: none;
+        background-color: transparent;
+        height: 50px;
+        border-radius: 50px;
+      }
+      input {
+        height: 100px;
+        width: 210px;
+        background-color: transparent;
+        text-decoration: none;
+        /* margin-left: 0px; */
+        border-radius: 10px;
+        font-size: 20px;
+        text-align: right;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="dis">|</div>
-        <!-- <div class="sign">sign</div> -->
-        <div class="child childAC">AC</div>
-        <div class="child child2">( )</div>
-        <div class="child child3">%</div>
-        <div class="child child4">^</div>
-        <div class="child child5">7</div>
-        <div class="child child6">8</div>
-        <div class="child child7">9</div>
-        <div class="child child8">×</div>
-        <div class="child child9">4</div>
-        <div class="child child10">5</div>
-        <div class="child child11">6</div>
-        <div class="child child12">-</div>
-        <div class="child child13">1</div>
-        <div class="child child14">2</div>
-        <div class="child child15">3</div>
-        <div class="child child16">+</div>
-        <div class="child child17">0</div>
-        <div class="child child18">.</div>
-        <div class="child child19">D</div>
-        <div class="child child20">=</div>
+      <div class="dis"><input id="screen" type="text" placeholder=" Calculator           "/></div>
+      <button id="ac" onclick="ac()" class="child childAC">AC</button>
+      <button onclick="addvalue('()')" class="operator">( )</button>
+      <button onclick="addvalue('%')" class="operator">%</button>
+      <button onclick="addvalue('/')" class="operator">/</button>
+      <button onclick="addvalue('7')" class="child child5">7</button>
+      <button onclick="addvalue('8')" class="child child6">8</button>
+      <button onclick="addvalue('9')" class="child child7">9</button>
+      <button onclick="addvalue('*')" class="operator">×</button>
+      <button onclick="addvalue('4')" class="child child9">4</button>
+      <button onclick="addvalue('5')" class="child child10">5</button>
+      <button onclick="addvalue('6')" class="child child11">6</button>
+      <button onclick="addvalue('-')" class="operator">-</button>
+      <button onclick="addvalue('1')" class="child child13">1</button>
+      <button onclick="addvalue('2')" class="child child14">2</button>
+      <button onclick="addvalue('3')" class="child child15">3</button>
+      <button onclick="addvalue('+')" class="operator">+</button>
+      <button onclick="addvalue('0')" class="child child17">0</button>
+      <button onclick="addvalue('.')" class="child child18">.</button>
+      <button onclick="remove()" class="child child19">D</button>
+      <button id="resultt" onclick="result()" class="operator">=</button>
+      <p id="p1"></p>
     </div>
-</body>
+
+    <script>
+      let screen = document.getElementById("screen");
+      let p1 = document.getElementById("p1");
+
+      function ac() {
+        screen.value = "";
+      }
+
+      function remove() {
+        screen.value = screen.value.slice(0, screen.value.length - 1);
+      }
+
+      function addvalue(x) {
+        screen.value += x;
+      }
+
+      function result() {
+        let cal = eval(screen.value);
+        screen.value = cal;
+      }
+    </script>
+  </body>
 </html>

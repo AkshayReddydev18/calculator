@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP</title>
+  </head>
+  <body>
+
+    <fieldset>
+    <legend>OTP Generator</legend>
+    <button id="otpgenerater" >Generate OTP</button>
+    <p type="number" id="resul"></p>
+    <input type="number" id="otpp" />
+    <input type="submit" id="submit" onclick="otpsub()" /><br>
+    <p id="res"></p>
+
+    </fieldset>
+
+   
+    <script>
+      function even() {
+        var y = document.getElementById("akshay").value;
+        if (y % 2 == 0) {
+          result.textContent = `${y}: is a even number`;
+        } 
+        else {
+          result.textContent = `${y}: is a odd number`;
+        }
+      }
+
+       let otpgenerater=document.getElementById("otpgenerater");
+       let otp = 0;
+       otpgenerater.addEventListener("click",(e)=>{
+         otp = Math.floor(Math.random() * 990000);
+        resul.textContent = otp;
+
+       })
+
+    let submit=document.getElementById("submit");
+    submit.addEventListener("click",(e)=>{
+        var x = document.getElementById("otpp").value;
+        res.textContent = `${x}`;
+        if (x == otp && x.length == 6) {
+          res.textContent = `Verified`;
+        } else {
+          res.textContent = `enter valid OTP`;
+        }
+
+    })
+
+    </script>
+  </body>
+</html>
